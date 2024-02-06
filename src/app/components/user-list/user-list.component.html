@@ -1,0 +1,16 @@
+<div class="table-container">
+<table class="table" *ngIf="users && users.length > 0">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">UserName</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users">
+      <td>{{ user.id }}</td>
+      <td>{{ user.userName }}</td>
+    </tr>
+  </tbody>
+</table>
+</div>

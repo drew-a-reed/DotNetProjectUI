@@ -1,0 +1,8 @@
+.table-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+  max-width: clamp(75%, 85%, 95%);
+  margin: 0 auto;
+}
