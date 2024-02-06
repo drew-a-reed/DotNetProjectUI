@@ -9,17 +9,17 @@ import { JwtAuth } from '../models/jwtAuth';
   providedIn: 'root'
 })
 export class AuthenticationService {
-  registerUrl = "AuthManagement/Register"
-  loginUrl = "AuthManagement/Login"
+  apiUrl = "https://localhost:7179/api";
+  registerUrl = "AuthManagement/Register";
+  loginUrl = "AuthManagement/Login";
 
   constructor(private http: HttpClient) { }
 
   public register(user: Register): Observable<JwtAuth> {
-    return this.http.post<JwtAuth>('${enviroment.apiUrl}/${this.registerUrl}', user);
+    return this.http.post<JwtAuth>(`${this.apiUrl}/${this.registerUrl}`, user);
   }
 
   public login(user: Login): Observable<JwtAuth> {
-    return this.http.post<JwtAuth>('${enviroment.apiUrl}/${this.login}', user);
+    return this.http.post<JwtAuth>(`${this.apiUrl}/${this.loginUrl}`, user);
   }
-
 }

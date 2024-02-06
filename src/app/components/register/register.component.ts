@@ -5,13 +5,12 @@ import { Login } from 'src/app/models/login';
 import { Register } from 'src/app/models/register';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 
-
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  selector: 'app-register',
+  templateUrl: './register.component.html',
+  styleUrls: ['./register.component.scss']
 })
-export class LoginComponent {
+export class RegisterComponent {
   loginDto = new Login();
   registerDto = new Register();
   JwtDto = new JwtAuth();
@@ -19,13 +18,13 @@ export class LoginComponent {
   constructor(private authService: AuthenticationService,
     private router: Router){}
 
-  login(loginDto: Login){
-    this.authService.login(loginDto).subscribe((JwtDto => {
-      localStorage.setItem('jwtToken', JwtDto.token);
-      console.log(JwtDto.token);
-      const userId = JwtDto.userId;
+  register(registerDto: Register){
+    this.authService.register(registerDto).subscribe({
+      next: (response) => {
+        const userId = response.userId;
         this.router.navigate(['users', userId]);
-    }));
+      }
+    });
   }
 
 }

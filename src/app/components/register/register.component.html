@@ -1,20 +1,24 @@
 <div class="form-container">
-  <form #form="ngForm" (ngSubmit)="login(loginDto)">
+  <form #form="ngForm" (ngSubmit)="register(registerDto)">
+    <div class="mb-3">
+      <label for="name" class="form-label">Name</label>
+      <input type="text" class="form-control" id="name" name="name" [(ngModel)]="registerDto.name">
+    </div>
     <div class="mb-3">
       <label for="exampleInputEmail1" class="form-label">Email address</label>
       <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email"
-        [(ngModel)]="loginDto.email">
+        [(ngModel)]="registerDto.email">
     </div>
     <div class="mb-3">
       <label for="exampleInputPassword1" class="form-label">Password</label>
       <input type="password" class="form-control" id="exampleInputPassword1" name="password"
-        [(ngModel)]="loginDto.password">
+        [(ngModel)]="registerDto.password">
     </div>
     <div class="button-container">
-      <button type="submit" class="btn btn-primary">Login</button>
+      <button type="submit" class="btn btn-primary">Register</button>
     </div>
   </form>
   <div class="go-to-other">
-    Don't Have An Account? <a routerLink="/register">Register for an account Here</a>
+    Already Have An Account? <a routerLink="/login">Login Here</a>
   </div>
 </div>

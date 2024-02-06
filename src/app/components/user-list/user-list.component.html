@@ -4,12 +4,14 @@
     <tr>
       <th scope="col">ID</th>
       <th scope="col">UserName</th>
+      <th scope="col"></th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let user of users">
       <td>{{ user.id }}</td>
       <td>{{ user.userName }}</td>
+      <td><a [routerLink]="['/users', user.id]">View</a></td>
     </tr>
   </tbody>
 </table>
